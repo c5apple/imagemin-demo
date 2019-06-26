@@ -4,7 +4,7 @@ const imageminPngquant = require('imagemin-pngquant');
 const imageminGifsicle = require('imagemin-gifsicle');
 const imageminSvgo = require('imagemin-svgo');
 
-imagemin(['src/*.{jpg,png,gif,svg}'], 'dist', {
+imagemin(['src/*.{jpg,JPG,png,gif,svg}'], 'dist', {
   plugins: [
     imageminMozjpeg({ quality: 80 }),
     imageminPngquant({ quality: [0.65, 0.8] }),
