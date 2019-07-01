@@ -3,6 +3,15 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
 const imageminGifsicle = require('imagemin-gifsicle');
 const imageminSvgo = require('imagemin-svgo');
+const fs = require('fs');
+
+fs.readdir('dist', (err, files) => {
+  if (err) throw err;
+
+  files.forEach((file) => {
+    fs.unlinkSync('dist/' + file);
+  });
+});
 
 imagemin(['src/*.{jpg,JPG,png,gif,svg}'], 'dist', {
   plugins: [
